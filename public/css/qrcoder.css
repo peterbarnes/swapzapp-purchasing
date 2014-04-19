@@ -60,6 +60,7 @@ table {
 
 a {
   text-decoration: none;
+  color: #428bca;
 }
 
 ul {
@@ -106,7 +107,7 @@ ul {
 }
 
 .qrtable td {
-  padding: 5px;
-  padding-top: 5px;
+  height: 45px;
+  line-height: 45px;
 }
 

@@ -1,6 +1,3 @@
-<div class="header">
-  <h1><i class="fa fa-qrcode" style="color: #428bca;"></i> QRCode Generator</h1>
-</div>
 <div class="qrtable">
   <table>
     <thead style="border-bottom: 1px solid #c2c2c2;">
@@ -15,13 +12,18 @@
     </thead>
     <tbody>
       <% @qrcodes.each do |c| %>
-        <tr>
+        <tr style="border-bottom: 1px solid #c2c2c2;">
           <td><%= c.quantity %></td>
           <td><%= c.name %></td>
           <td><%= c.sku %></td>
           <td><%= c.cash_price %></td>
           <td><%= c.credit_price %></td>
           <td><%= c.purchase_id %></td>
+          <td style="text-align: right;">
+            <a href="#"><i class="fa fa-print"></i></a>
+            |
+            <a href="#"><i class="fa fa-times-circle" style="color: #FF7070;"></i></a>
+          </td>
         </tr>
       <% end %>
     </tbody>
