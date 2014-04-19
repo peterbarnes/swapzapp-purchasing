@@ -1,4 +1,1 @@
-QRCoder
-=======
-
 QRCode service
