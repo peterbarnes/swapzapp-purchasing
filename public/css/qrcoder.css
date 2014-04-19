@@ -97,4 +97,16 @@ ul {
   width: 100%;
 }
 
+.qrtable th {
+  text-align: left;
+}
+
+.qrtable tbody {
+  margin-top: 10px;
+}
+
+.qrtable td {
+  padding: 5px;
+  padding-top: 5px;
+}
 

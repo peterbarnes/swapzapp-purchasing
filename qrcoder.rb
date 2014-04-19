@@ -28,8 +28,9 @@ before '/qrcodes/*' do
   content_type :json
 end
 
+#Index
 get '/?' do 
-  @codes = Qrcode.all
+  @qrcodes = Qrcode.all
   erb :index 
 end
 

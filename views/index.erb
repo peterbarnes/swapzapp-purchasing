@@ -3,7 +3,7 @@
 </div>
 <div class="qrtable">
   <table>
-    <thead>
+    <thead style="border-bottom: 1px solid #c2c2c2;">
       <tr>
         <th>Quantity</th>
         <th>Name</th>
@@ -14,8 +14,16 @@
       </tr>
     </thead>
     <tbody>
-
+      <% @qrcodes.each do |c| %>
+        <tr>
+          <td><%= c.quantity %></td>
+          <td><%= c.name %></td>
+          <td><%= c.sku %></td>
+          <td><%= c.cash_price %></td>
+          <td><%= c.credit_price %></td>
+          <td><%= c.purchase_id %></td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
-  <%=  %>
 </div>
