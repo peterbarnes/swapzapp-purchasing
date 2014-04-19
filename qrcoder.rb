@@ -52,6 +52,12 @@ get '/print/:id/?' do
   end
 end
 
+get '/remove/:id' do
+  @qrcode = Qrcode.find(params[:id])
+  @qrcode.destroy
+  redirect '/'
+end
+
 # API Index
 get '/qrcodes/?' do
   Qrcode.all.to_json
