@@ -18,8 +18,11 @@
  td.black { background-color: #000; }
  td.white { background-color: #fff; }
 </style>
- 
+<% if params[:print] %>
+<div style="margin-left: auto; margin-right: auto; margin-top: 20px;">
+<% else %>
 <div style="width: 36%; margin-left: auto; margin-right: auto; margin-top: 20px;">
+<% end %>
   <table class="qrcodetable" style="margin-left: auto; margin-right: auto;">
    <% @qr.modules.each_index do |x| %>
      <tr>
@@ -33,9 +36,12 @@
      </tr>
    <% end %>
   </table>
+  <% if params[:print] %>
+  <% else %>
   <div style="text-align: center; padding: 20px; margin-top: 15px;">
     <a href="/print/<%= @qrcode.id %>/?print=true" style="color: #ffffff; background-color: #428bca; padding: 15px; border-radius: 15px; width: 100px;" class="print">
       <i class="fa fa-print"></i> Print
     </a>
   </div>
+  <% end %>
 </div>
