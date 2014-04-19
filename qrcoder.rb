@@ -9,8 +9,13 @@ class Qrcode
   include Mongoid::Document
   include Mongoid::Timestamps
   
-  field :name,  type: String
-  field :sku,   type: String
+  field :name,         type: String
+  field :sku,          type: String
+  field :cash_price,   type: Integer
+  field :credit_price, type: Integer
+  field :quantity,     type: Integer
+  field :purchase_id,  type: String
+  field :account_id,   type: String
 end
 
 configure do
@@ -58,7 +63,7 @@ put '/qrcodes/:id/?' do
 end
 
 # Destroy
-delete '/Qrcodes/:id' do
+delete '/qrcodes/:id' do
   begin
     Qrcoder.find(params[:id]).destroy
   rescue

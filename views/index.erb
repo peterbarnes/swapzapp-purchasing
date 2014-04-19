@@ -1,8 +1,12 @@
-<h1>Index</h1>
-<% @codes.each do |c| %>
-  <ul>
-    <li>
-      <%= c.name %> <%= c.sku %>
-    </li>
-  </ul>
-<% end %>
+<div class="header">
+  <h1><i class="fa fa-qrcode" style="color: #428bca;"></i> QRCode Generator</h1>
+</div>
+<div class="list">
+  <% @codes.each do |c| %>
+    <ul>
+      <li>
+        <%= c.name %> <%= c.sku %>
+      </li>
+    </ul>
+  <% end %>
+</div>
