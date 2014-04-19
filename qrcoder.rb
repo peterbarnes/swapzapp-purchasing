@@ -35,13 +35,13 @@ end
 
 # Index
 get '/qrcodes/?' do
-  Qrcoder.all.to_json
+  Qrcode.all.to_json
 end
 
 # Find
 get '/qrcodes/:id/?' do
   begin
-    Qrcoder.find(params[:id]).to_json
+    Qrcode.find(params[:id]).to_json
   rescue
     status 404
   end
@@ -49,14 +49,14 @@ end
 
 # Create
 post '/qrcodes/?' do
-  Qrcoder.create(JSON.parse(request.body.read))
+  Qrcode.create(JSON.parse(request.body.read))
   status 201
 end
 
 # Update
 put '/qrcodes/:id/?' do
   begin
-    Qrcoder.find(params[:id]).update_attributes(JSON.parse(request.body.read))
+    Qrcode.find(params[:id]).update_attributes(JSON.parse(request.body.read))
   rescue
     status 404
   end
@@ -65,7 +65,7 @@ end
 # Destroy
 delete '/qrcodes/:id' do
   begin
-    Qrcoder.find(params[:id]).destroy
+    Qrcode.find(params[:id]).destroy
   rescue
     status 404
   end

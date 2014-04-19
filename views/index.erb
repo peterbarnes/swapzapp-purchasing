@@ -2,11 +2,12 @@
   <h1><i class="fa fa-qrcode" style="color: #428bca;"></i> QRCode Generator</h1>
 </div>
 <div class="list">
-  <% @codes.each do |c| %>
-    <ul>
+  <hr>
+  <ul>
+    <% @codes.each do |c| %>
       <li>
         <%= c.name %> <%= c.sku %>
       </li>
-    </ul>
-  <% end %>
+    <% end %>
+  </ul>
 </div>
