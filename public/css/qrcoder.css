@@ -78,17 +78,23 @@ ul {
   line-height: 70px;
 }
 
-.list {
-  padding: 10px;
-  border: 1px solid #c2c2c2;
+.qrtable {
   width: 80%;
-  margin-right: auto;
   margin-left: auto;
+  margin-right: auto;
   margin-top: 20px;
-  border-radius: 5px;
+  padding: 25px;
+  background-color: #eaeaea;
+  border: 1px solid #c2c2c2;
+  border-radius: 15px;
 }
 
-.list li {
-  margin: 5px;
+.qrtable li {
+  padding: 5px;
 }
+
+.qrtable table {
+  width: 100%;
+}
+
 

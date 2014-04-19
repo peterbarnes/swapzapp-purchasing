@@ -1,13 +1,21 @@
 <div class="header">
   <h1><i class="fa fa-qrcode" style="color: #428bca;"></i> QRCode Generator</h1>
 </div>
-<div class="list">
-  <hr>
-  <ul>
-    <% @codes.each do |c| %>
-      <li>
-        <%= c.name %> <%= c.sku %>
-      </li>
-    <% end %>
-  </ul>
+<div class="qrtable">
+  <table>
+    <thead>
+      <tr>
+        <th>Quantity</th>
+        <th>Name</th>
+        <th>Sku</th>
+        <th>Cash price</th>
+        <th>Credit price</th>
+        <th>Purchase ID</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+  <%=  %>
 </div>

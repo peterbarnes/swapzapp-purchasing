@@ -75,3 +75,16 @@ not_found do
   status 404
   ""
 end
+
+get '/print/:id/?' do 
+  @qrcode = Qrcode.find(params[:id])
+  @data = {
+    :name => @qrcode.name,
+    :sku  => @qrcode.sku,
+    :cash_price => @qrcode.cash_price,
+    :credit_price => @qrcode.credit_price,
+    :purchase_id => @qrcode.purchase_id
+  }.to_json
+  @qr = RQRCode::QRCode.new( @data, :size => 8, :level => :l )
+  erb :show
+end
