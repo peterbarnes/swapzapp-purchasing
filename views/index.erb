@@ -13,14 +13,16 @@
     <tbody>
       <% @qrcodes.each do |c| %>
         <tr style="border-bottom: 1px solid #c2c2c2;">
-          <td><%= c.quantity %></td>
+          <td style="padding-left: 20px;"><%= c.quantity %></td>
           <td><%= c.name %></td>
           <td><%= c.sku %></td>
           <td><%= c.cash_price %></td>
           <td><%= c.credit_price %></td>
           <td><%= c.purchase_id %></td>
           <td style="text-align: right;">
-            <a href="#"><i class="fa fa-print"></i></a>
+            <a href="/print/<%= c.id %>">
+              <i class="fa fa-print"></i>
+            </a>
             |
             <a href="#"><i class="fa fa-times-circle" style="color: #FF7070;"></i></a>
           </td>

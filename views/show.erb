@@ -19,16 +19,23 @@
  td.white { background-color: #fff; }
 </style>
  
-<table class="qrcodetable">
- <% @qr.modules.each_index do |x| %>
-   <tr>
-   <% @qr.modules.each_index do |y| %>
-    <% if @qr.dark?(x,y) %>
-    <td class="black"/>
-    <% else %>
-    <td class="white"/>
-    <% end %>
+<div style="width: 36%; margin-left: auto; margin-right: auto; margin-top: 20px;">
+  <table class="qrcodetable" style="margin-left: auto; margin-right: auto;">
+   <% @qr.modules.each_index do |x| %>
+     <tr>
+     <% @qr.modules.each_index do |y| %>
+      <% if @qr.dark?(x,y) %>
+      <td class="black"/>
+      <% else %>
+      <td class="white"/>
+      <% end %>
+     <% end %>
+     </tr>
    <% end %>
-   </tr>
- <% end %>
-</table>
+  </table>
+  <div style="text-align: center; padding: 20px; margin-top: 15px;">
+    <a href="#" style="color: #ffffff; background-color: #428bca; padding: 15px; border-radius: 15px; width: 100px;">
+      <i class="fa fa-print"></i> Print
+    </a>
+  </div>
+</div>
