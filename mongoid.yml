@@ -1,0 +1,10 @@
+production:
+  sessions:
+    default:
+      uri: <%= ENV['MONGOLAB_URI'] %>
+development:
+  sessions:
+    default:
+      hosts:
+        - 0.0.0.0:27017
+      database: qrcodes
