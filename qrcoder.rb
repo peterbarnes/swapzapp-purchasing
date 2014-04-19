@@ -34,7 +34,6 @@ get '/?' do
   erb :index 
 end
 
-
 # Print
 get '/print/:id/?' do 
   @qrcode = Qrcode.find(params[:id])
@@ -46,7 +45,11 @@ get '/print/:id/?' do
     :purchase_id => @qrcode.purchase_id
   }.to_json
   @qr = RQRCode::QRCode.new( @data, :size => 8, :level => :l )
-  erb :show
+  if params[:print]
+    erb :show, :layout => false
+  else
+    erb :show
+  end
 end
 
 # API Index
