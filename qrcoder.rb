@@ -28,54 +28,13 @@ before '/qrcodes/*' do
   content_type :json
 end
 
-get '/?' do 
-  @codes = Qrcode.all
-  erb :index 
-end
-
 # Index
-get '/qrcodes/?' do
-  Qrcode.all.to_json
+get '/?' do 
+  @qrcodes = Qrcode.all
+  erb :index
 end
 
-# Find
-get '/qrcodes/:id/?' do
-  begin
-    Qrcode.find(params[:id]).to_json
-  rescue
-    status 404
-  end
-end
-
-# Create
-post '/qrcodes/?' do
-  Qrcode.create(JSON.parse(request.body.read))
-  status 201
-end
-
-# Update
-put '/qrcodes/:id/?' do
-  begin
-    Qrcode.find(params[:id]).update_attributes(JSON.parse(request.body.read))
-  rescue
-    status 404
-  end
-end
-
-# Destroy
-delete '/qrcodes/:id' do
-  begin
-    Qrcode.find(params[:id]).destroy
-  rescue
-    status 404
-  end
-end
-
-not_found do
-  status 404
-  ""
-end
-
+# Print
 get '/print/:id/?' do 
   @qrcode = Qrcode.find(params[:id])
   @data = {
@@ -87,4 +46,47 @@ get '/print/:id/?' do
   }.to_json
   @qr = RQRCode::QRCode.new( @data, :size => 8, :level => :l )
   erb :show
+end
+
+# API Index
+get '/qrcodes/?' do
+  Qrcode.all.to_json
+end
+
+# API Find
+get '/qrcodes/:id/?' do
+  begin
+    Qrcode.find(params[:id]).to_json
+  rescue
+    status 404
+  end
+end
+
+# API Create
+post '/qrcodes/?' do
+  Qrcode.create(JSON.parse(request.body.read))
+  status 201
+end
+
+# API Update
+put '/qrcodes/:id/?' do
+  begin
+    Qrcode.find(params[:id]).update_attributes(JSON.parse(request.body.read))
+  rescue
+    status 404
+  end
+end
+
+# API Destroy
+delete '/qrcodes/:id' do
+  begin
+    Qrcode.find(params[:id]).destroy
+  rescue
+    status 404
+  end
+end
+
+not_found do
+  status 404
+  ""
 end
