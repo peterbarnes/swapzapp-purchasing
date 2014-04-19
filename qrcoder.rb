@@ -30,7 +30,7 @@ end
 
 #Index
 get '/?' do 
-  @qrcodes = Qrcode.all
+  @qrcodes = Qrcode.desc(:created_at)
   erb :index 
 end
 

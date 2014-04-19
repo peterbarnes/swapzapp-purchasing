@@ -84,10 +84,13 @@ ul {
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
+  margin-bottom: 20px;
   padding: 25px;
   background-color: #eaeaea;
   border: 1px solid #c2c2c2;
   border-radius: 15px;
+  max-height: 650px;
+  overflow: scroll;
 }
 
 .qrtable li {
@@ -98,8 +101,12 @@ ul {
   width: 100%;
 }
 
+tr:nth-of-type(odd) {
+  background-color: #eaeaea !important;
+}
 .qrtable th {
   text-align: left;
+  padding-bottom: 5px;
 }
 
 .qrtable tbody {
@@ -109,5 +116,9 @@ ul {
 .qrtable td {
   height: 45px;
   line-height: 45px;
+  background-color: #f2f2f2;
 }
 
+.printbtn:hover {
+  background-color: #2A6291 !important;
+}
