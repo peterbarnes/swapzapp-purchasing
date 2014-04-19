@@ -6,5 +6,5 @@ development:
   sessions:
     default:
       hosts:
-        - 0.0.0.0:27017
+        - localhost:27017
       database: qrcodes
