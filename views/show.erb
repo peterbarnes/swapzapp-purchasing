@@ -1,41 +1,106 @@
 <style type="text/css">
- table {
-  border-width: 0;
-  border-style: none;
-  border-color: #0000ff;
-  border-collapse: collapse;
- }
- td {
-   border-width: 0;
-   border-style: none;
-   border-color: #0000ff;
-   border-collapse: collapse;
-   padding: 0;
-   margin: 0;
-   width: 10px;
-   height: 10px;
- }
- td.black { background-color: #000; }
- td.white { background-color: #fff; }
+.display {
+  background-color: #eaeaea;
+  margin-top: 20px;
+  width: 65%;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 5px;
+  border: 2px solid #b5b5b5;
+}
+
+.display h1 {
+  font-size: 35px;
+  text-align: center;
+  padding: 5px;
+}
+
+small {
+  font-size: 60%;
+  color: #b5b5b5;
+  font-style: oblique;
+}
+
+.item_info {
+  padding: 20px;
+}
+
+h5 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.date {
+  font-size: 95%;
+  font-style: oblique;
+}
+
+hr {
+  color: #ffffff;
+}
+
+.price {
+  background-color: #fcfcfc;
+  padding: 20px;
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 15px;
+  border: 1px solid #b5b5b5;
+}
+
+.notes {
+  margin-top: 20px;
+  background-color: #fcfcfc;
+  padding: 20px;
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 15px;
+  border: 1px solid #b5b5b5;
+}
+
+.quantity {
+  text-align: left !important;
+  padding: 5px;
+  color: #b5b5b5;
+}
+
+.top {
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 5px;
+  font-size: 35px;
+}
+
 </style>
-<% if params[:print] %>
-<div style="margin-left: auto; margin-right: auto; margin-top: 20px;">
-<% else %>
-<div style="width: 36%; margin-left: auto; margin-right: auto; margin-top: 20px;">
-<% end %>
-  <table class="qrcodetable" style="margin-left: auto; margin-right: auto;">
-   <% @qr.modules.each_index do |x| %>
-     <tr>
-     <% @qr.modules.each_index do |y| %>
-      <% if @qr.dark?(x,y) %>
-      <td class="black"/>
-      <% else %>
-      <td class="white"/>
-      <% end %>
-     <% end %>
-     </tr>
-   <% end %>
-  </table>
+<div class="display">
+  <span class="quantity">Qty: <%= @qrcode.quantity %></span>
+  <div class="top">
+    <span><%= @qrcode.name %></span>
+    <span><small>(<%= @qrcode.sku %>)</small></span>
+  </div>
+  <h5 class="date"><%= @qrcode.created_at.strftime("%m-%d-%Y") %></h5>
+  <div class="item_info">
+    <h5 class="price">
+      Cash price: <%= @qrcode.cash_price %>
+      <hr noshade color="#b5b5b5">
+      Credit price: <%= @qrcode.credit_price %>
+    </h5>
+    <div class="notes">
+     <h5>Notes</h5>
+     <hr noshade color="#b5b5b5">
+     <p class="details">
+      <%= @qrcode.notes %>
+     </p>
+    </div>
+    <div class="notes">
+      <h5>Employee</h5>
+      <hr noshade color="#b5b5b5">
+      <p><%= @qrcode.user %></p>
+    </div>
+  </div>
+</div>
   <% if params[:print] %>
   <% else %>
   <div style="text-align: center; padding: 20px; margin-top: 15px;">

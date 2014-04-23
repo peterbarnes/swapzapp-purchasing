@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'bundler'
+require 'rqrcode_png'
 
 ENV['RACK_ENV'] ||= 'development'
 
@@ -16,6 +17,8 @@ class Qrcode
   field :quantity,     type: Integer
   field :purchase_id,  type: String
   field :account_id,   type: String
+  field :notes,        type: String
+  field :user,         type: String
 end
 
 configure do

@@ -4,10 +4,7 @@
       <tr>
         <th>Quantity</th>
         <th>Name</th>
-        <th>Sku</th>
-        <th>Cash price</th>
-        <th>Credit price</th>
-        <th>Purchase ID</th>
+        <th>User</th>
       </tr>
     </thead>
     <tbody class="striped">
@@ -15,13 +12,10 @@
         <tr>
           <td style="padding-left: 20px;"><%= c.quantity %></td>
           <td><%= c.name %></td>
-          <td><%= c.sku %></td>
-          <td><%= c.cash_price %></td>
-          <td><%= c.credit_price %></td>
-          <td><%= c.purchase_id %></td>
+          <td><%= c.user %></td>
           <td style="text-align: right; padding-right: 15px;">
             <a href="/print/<%= c.id %>">
-              <i class="fa fa-print"></i>
+              <i class="fa fa-eye"></i>
             </a>
             |
             <a href="/remove/<%= c.id %>"><i class="fa fa-times-circle" style="color: #FF7070;"></i></a>

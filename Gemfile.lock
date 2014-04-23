@@ -7,12 +7,14 @@ GEM
     activesupport (3.2.17)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
+    barby (0.5.1)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.0.4)
+    chunky_png (1.3.0)
     coderay (1.1.0)
     debug_inspector (0.0.2)
     dotenv (0.10.0)
@@ -33,6 +35,9 @@ GEM
     rack-protection (1.5.3)
       rack
     rqrcode (0.4.2)
+    rqrcode_png (0.1.2)
+      chunky_png
+      rqrcode
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -45,9 +50,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  barby
   better_errors
   binding_of_caller
   foreman
   mongoid
   rqrcode
+  rqrcode_png
   sinatra
