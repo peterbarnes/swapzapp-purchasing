@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'bundler'
-require 'rqrcode_png'
 
 ENV['RACK_ENV'] ||= 'development'
 
@@ -49,7 +48,7 @@ get '/print/:id/?' do
   }.to_json
   @qr = RQRCode::QRCode.new( @data, :size => 8, :level => :l )
   if params[:print]
-    erb :show, :layout => false
+    erb :printer, :layout => false
   else
     erb :show
   end

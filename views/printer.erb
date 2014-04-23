@@ -1,0 +1,31 @@
+<style>
+* {
+  font-family: Arial !important;
+}
+
+small {
+  font-size: 60%;
+  color: #cccccc;
+  font-style: oblique;
+}
+</style>
+<div class="header">
+  <span><h3>Qty: <%= @qrcode.quantity %></h3></span>
+</div>
+<div class="info">
+  <div class="name">
+    <h1><%= @qrcode.name %> <small>(<%= @qrcode.sku %>)</small></h1>
+  </div>
+  <div class="price">
+    <p>Cash price: <%= @qrcode.cash_price %></p>
+    <p>Credit price: <%= @qrcode.credit_price %></p>
+  </div>
+  <div class="notes">
+    <h4>Notes</h4>
+    <hr noshade color="#b5b5b5">
+    <p><%= @qrcode.notes %></p>
+  </div>
+  <div class="user">
+    <h4>Employee: <%= @qrcode.user %></h4>
+  </div>
+</div>
