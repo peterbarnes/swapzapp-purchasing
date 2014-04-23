@@ -1,12 +1,14 @@
 <style type="text/css">
 .display {
-  background-color: #eaeaea;
+  background-color: #ffffff;
   margin-top: 20px;
   width: 65%;
-  margin-right: auto;
-  margin-left: auto;
   border-radius: 5px;
   border: 2px solid #b5b5b5;
+}
+.display, .price, .notes {
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .display h1 {
@@ -35,34 +37,19 @@ h5 {
   font-style: oblique;
 }
 
-hr {
-  color: #ffffff;
-}
-
-.price {
+.price, .notes {
   background-color: #fcfcfc;
   padding: 20px;
   width: 50%;
-  margin-right: auto;
-  margin-left: auto;
-  border-radius: 15px;
   border: 1px solid #b5b5b5;
 }
 
 .notes {
   margin-top: 20px;
-  background-color: #fcfcfc;
-  padding: 20px;
-  width: 50%;
-  margin-right: auto;
-  margin-left: auto;
-  border-radius: 15px;
-  border: 1px solid #b5b5b5;
 }
 
 .quantity {
   text-align: left !important;
-  padding: 5px;
   color: #b5b5b5;
 }
 
@@ -71,6 +58,11 @@ hr {
   padding: 5px;
   margin-bottom: 5px;
   font-size: 35px;
+}
+
+.codes {
+  text-align: center;
+  padding: 10px;
 }
 
 </style>
@@ -99,6 +91,9 @@ hr {
       <hr noshade color="#b5b5b5">
       <p><%= @qrcode.user %></p>
     </div>
+  </div>
+  <div class="codes">
+    <p>*Insert QR and barcode here*</p>
   </div>
 </div>
   <% if params[:print] %>
