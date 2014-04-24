@@ -1,6 +1,7 @@
 <style>
 * {
   font-family: Arial !important;
+  text-align: center;
 }
 
 small {
@@ -8,24 +9,50 @@ small {
   color: #cccccc;
   font-style: oblique;
 }
+
+
+.text {
+  font-weight: normal;
+}
+
+.name, .price, .notes, .user, .date, .codes {
+  border: 1px solid #000000;
+  border-collapse: collapse;
+  margin: 5px;
+  padding-left: 15px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 </style>
-<div class="header">
-  <span><h3>Qty: <%= @qrcode.quantity %></h3></span>
-</div>
-<div class="info">
+<div class="info clearfix">
   <div class="name">
-    <h1><%= @qrcode.name %> <small>(<%= @qrcode.sku %>)</small></h1>
+    <h1><%= @qrcode.name %> <small>(<%= @qrcode.sku %>) Qty: <%= @qrcode.quantity %></small></h1>
+  </div>
+  <div class="date">
+    <h1><%= @qrcode.created_at.strftime("%m-%d-%Y") %></h1>
   </div>
   <div class="price">
+  <% if @qrcode.cash_price = 0 %>
+    <p>Credit price: <%= @qrcode.credit_price %></p>
+  <% elsif @qrcode.credit_price = 0 %>
+    <p>Cash price: <%= @qrcode.cash_price %></p>
+  <% else %>
     <p>Cash price: <%= @qrcode.cash_price %></p>
     <p>Credit price: <%= @qrcode.credit_price %></p>
+  <% end %>
   </div>
+  <% if @qrcode.notes.blank? %>
+  <% else %>
   <div class="notes">
-    <h4>Notes</h4>
-    <hr noshade color="#b5b5b5">
-    <p><%= @qrcode.notes %></p>
+    <h4>Notes: <span class="text"><%= @qrcode.notes %></span></h4>
   </div>
+  <% end %>
   <div class="user">
     <h4>Employee: <%= @qrcode.user %></h4>
+  </div>
+  <div class="codes">
+    <h2>*insert QR and barcodes here*</h2>
   </div>
 </div>

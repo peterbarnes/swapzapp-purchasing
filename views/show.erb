@@ -25,6 +25,7 @@ small {
 
 .item_info {
   padding: 20px;
+  text-align: center;
 }
 
 h5 {
@@ -74,11 +75,19 @@ h5 {
   </div>
   <h5 class="date"><%= @qrcode.created_at.strftime("%m-%d-%Y") %></h5>
   <div class="item_info">
-    <h5 class="price">
-      Cash price: <%= @qrcode.cash_price %>
+    <div class="price">
+    <% if @qrcode.cash_price = 0 %>
+      <h5>Credit price: $<%= @qrcode.credit_price. / 100 %></h5>
+    <% elsif @qrcode.credit_price = 0 %>
+      <h5>Cash price: $<%= @qrcode.cash_price / 100 %></h5>
+    <% else %>
+      <h5>Cash price: $<%= @qrcode.cash_price / 100 %></h5>
       <hr noshade color="#b5b5b5">
-      Credit price: <%= @qrcode.credit_price %>
-    </h5>
+      <h5>Credit price: $<%= @qrcode.credit_price / 100 %></h5>
+    <% end %>
+    <% if @qrcode.notes.blank? %>
+    <% else %>
+  </div>
     <div class="notes">
      <h5>Notes</h5>
      <hr noshade color="#b5b5b5">
@@ -86,11 +95,12 @@ h5 {
       <%= @qrcode.notes %>
      </p>
     </div>
-    <div class="notes">
-      <h5>Employee</h5>
-      <hr noshade color="#b5b5b5">
-      <p><%= @qrcode.user %></p>
-    </div>
+    <% end %>
+  </div>
+  <div class="notes">
+    <h5>Employee</h5>
+    <hr noshade color="#b5b5b5">
+    <p><%= @qrcode.user %></p>
   </div>
   <div class="codes">
     <p>*Insert QR and barcode here*</p>
