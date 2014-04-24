@@ -41,12 +41,18 @@ h5 {
 .price, .notes {
   background-color: #fcfcfc;
   padding: 20px;
-  width: 50%;
+  width: 48%;
+  max-width: 48%;
   border: 1px solid #b5b5b5;
 }
 
 .notes {
   margin-top: 20px;
+  text-align: center;
+}
+
+.notes.user {
+  width: 48%;
 }
 
 .quantity {
@@ -61,9 +67,21 @@ h5 {
   font-size: 35px;
 }
 
-.codes {
+.printbtn {
   text-align: center;
-  padding: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.print {
+  color: #ffffff; 
+  background-color: #428bca; 
+  padding: 15px; 
+  padding-left: 185px;
+  padding-right: 185px;
+  border: 1px solid #3B6C96;
+  width: 200px;
 }
 
 </style>
@@ -76,15 +94,17 @@ h5 {
   <h5 class="date"><%= @qrcode.created_at.strftime("%m-%d-%Y") %></h5>
   <div class="item_info">
     <div class="price">
-    <% if @qrcode.cash_price = 0 %>
-      <h5>Credit price: $<%= @qrcode.credit_price. / 100 %></h5>
-    <% elsif @qrcode.credit_price = 0 %>
-      <h5>Cash price: $<%= @qrcode.cash_price / 100 %></h5>
-    <% else %>
-      <h5>Cash price: $<%= @qrcode.cash_price / 100 %></h5>
-      <hr noshade color="#b5b5b5">
-      <h5>Credit price: $<%= @qrcode.credit_price / 100 %></h5>
-    <% end %>
+      <% if @qrcode.cash_price != 0 and @qrcode.credit_price != 0 %>
+        <h5>Cash price: <%= @qrcode.cash_price %></h5>
+        <hr noshade color="#b5b5b5">
+        <h5>Credit price: <%= @qrcode.credit_price %></h5>
+      <% else %>
+        <% if @qrcode.credit_price != 0 %>
+          <h5>Credit price: <%= @qrcode.credit_price %></h5>
+        <% else %>
+          <h5>Cash price: <%= @qrcode.cash_price %></h5>
+        <% end %>
+      <% end %>
     <% if @qrcode.notes.blank? %>
     <% else %>
   </div>
@@ -97,21 +117,19 @@ h5 {
     </div>
     <% end %>
   </div>
-  <div class="notes">
+  <div class="notes user">
     <h5>Employee</h5>
     <hr noshade color="#b5b5b5">
     <p><%= @qrcode.user %></p>
   </div>
-  <div class="codes">
-    <p>*Insert QR and barcode here*</p>
-  </div>
-</div>
-  <% if params[:print] %>
+   <% if params[:print] %>
   <% else %>
-  <div style="text-align: center; padding: 20px; margin-top: 15px;">
-    <a href="/print/<%= @qrcode.id %>/?print=true" style="color: #ffffff; background-color: #428bca; padding: 15px; border-radius: 15px; width: 100px;" class="print">
+  <div class="printbtn">
+    <a href="/print/<%= @qrcode.id %>/?print=true" class="print">
       <i class="fa fa-print"></i> Print
     </a>
   </div>
   <% end %>
+</div>
+
 </div>

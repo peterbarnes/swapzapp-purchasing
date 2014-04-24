@@ -10,6 +10,10 @@ small {
   font-style: oblique;
 }
 
+h5 {
+  font-size: 20px;
+}
+
 
 .text {
   font-weight: normal;
@@ -20,7 +24,6 @@ small {
   border-collapse: collapse;
   margin: 5px;
   padding-left: 15px;
-  width: 60%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -34,14 +37,17 @@ small {
     <h1><%= @qrcode.created_at.strftime("%m-%d-%Y") %></h1>
   </div>
   <div class="price">
-  <% if @qrcode.cash_price = 0 %>
-    <p>Credit price: <%= @qrcode.credit_price %></p>
-  <% elsif @qrcode.credit_price = 0 %>
-    <p>Cash price: <%= @qrcode.cash_price %></p>
-  <% else %>
-    <p>Cash price: <%= @qrcode.cash_price %></p>
-    <p>Credit price: <%= @qrcode.credit_price %></p>
-  <% end %>
+    <% if @qrcode.cash_price != 0 and @qrcode.credit_price != 0 %>
+      <h5>Cash price: <%= @qrcode.cash_price %></h5>
+      <hr noshade color="#b5b5b5">
+      <h5>Credit price: <%= @qrcode.credit_price %></h5>
+    <% else %>
+      <% if @qrcode.credit_price != 0 %>
+        <h5>Credit price: <%= @qrcode.credit_price %></h5>
+      <% else %>
+        <h5>Cash price: <%= @qrcode.cash_price %></h5>
+      <% end %>
+    <% end %>
   </div>
   <% if @qrcode.notes.blank? %>
   <% else %>

@@ -119,7 +119,7 @@ tr:nth-of-type(odd) {
   background-color: #f2f2f2;
 }
 
-.printbtn:hover {
+.print:hover {
   background-color: #2A6291 !important;
 }
 
