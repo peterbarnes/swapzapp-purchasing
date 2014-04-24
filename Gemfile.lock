@@ -53,6 +53,7 @@ DEPENDENCIES
   barby
   better_errors
   binding_of_caller
+  chunky_png
   foreman
   mongoid
   rqrcode

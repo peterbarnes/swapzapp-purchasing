@@ -67,6 +67,24 @@ h5 {
   font-size: 35px;
 }
 
+table.barby-barcode {
+  height: 100px;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+td.barby-cell.on {
+  height: 100px;
+  background-color: #000000;
+  width: 1px;
+}
+
+td.barby-cell.off {
+  background-color: #ffffff !important;
+  width: 1px;
+}
+
 .printbtn {
   text-align: center;
   padding: 20px;
@@ -121,6 +139,9 @@ h5 {
     <h5>Employee</h5>
     <hr noshade color="#b5b5b5">
     <p><%= @qrcode.user %></p>
+  </div>
+  <div>
+
   </div>
    <% if params[:print] %>
   <% else %>

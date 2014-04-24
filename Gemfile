@@ -5,6 +5,7 @@ gem 'sinatra'
 gem 'mongoid'
 gem 'rqrcode'
 gem 'rqrcode_png'
+gem 'chunky_png'
 gem 'barby'
 
 group :development do
