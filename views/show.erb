@@ -107,7 +107,10 @@ td.barby-cell.off {
   <span class="quantity">Qty: <%= @qrcode.quantity %></span>
   <div class="top">
     <span><%= @qrcode.name %></span>
+    <% if @qrcode.sku.blank? %>
+    <% else %>
     <span><small>(<%= @qrcode.sku %>)</small></span>
+    <% end %>
   </div>
   <h5 class="date"><%= @qrcode.created_at.strftime("%m-%d-%Y") %></h5>
   <div class="item_info">
