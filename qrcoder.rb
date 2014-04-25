@@ -107,3 +107,10 @@ not_found do
   status 404
   ""
 end
+
+helpers do 
+
+  def currency(pennies)
+    sprintf "%.2f", pennies.to_f / 100
+  end
+end

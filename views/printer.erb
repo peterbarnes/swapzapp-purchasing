@@ -44,14 +44,14 @@ h5 {
   </div>
   <div class="price">
     <% if @qrcode.cash_price != 0 and @qrcode.credit_price != 0 %>
-      <h5>Cash price: <%= @qrcode.cash_price %></h5>
+      <h5>Cash price: $<%= currency(@qrcode.cash_price) %></h5>
       <hr noshade color="#b5b5b5">
-      <h5>Credit price: <%= @qrcode.credit_price %></h5>
+      <h5>Credit price: $<%= currency(@qrcode.credit_price) %></h5>
     <% else %>
       <% if @qrcode.credit_price != 0 %>
-        <h5>Credit price: <%= @qrcode.credit_price %></h5>
+        <h5>Credit price: $<%= currency(@qrcode.credit_price) %></h5>
       <% else %>
-        <h5>Cash price: <%= @qrcode.cash_price %></h5>
+        <h5>Cash price: $<%= currency(@qrcode.cash_price) %></h5>
       <% end %>
     <% end %>
   </div>

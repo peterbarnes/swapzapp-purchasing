@@ -19,7 +19,7 @@
           <tr>
             <td style="padding-left: 20px;"><%= c.quantity %></td>
             <td><%= c.name %></td>
-            <td><%= c.cash_price %>(<%= c.credit_price %>)</td>
+            <td>$<%= currency(c.cash_price) %>($<%= currency(c.credit_price) %>)</td>
             <td><%= c.user %></td>
             <td><%= c.created_at.strftime("%m-%d-%Y") %></td>
             <td style="text-align: right; padding-right: 15px;">

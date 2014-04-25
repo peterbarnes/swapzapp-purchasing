@@ -1,108 +1,3 @@
-<style type="text/css">
-.display {
-  background-color: #ffffff;
-  margin-top: 20px;
-  width: 65%;
-  border-radius: 5px;
-  border: 2px solid #b5b5b5;
-}
-.display, .price, .notes {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.display h1 {
-  font-size: 35px;
-  text-align: center;
-  padding: 5px;
-}
-
-small {
-  font-size: 60%;
-  color: #b5b5b5;
-  font-style: oblique;
-}
-
-.item_info {
-  padding: 20px;
-  text-align: center;
-}
-
-h5 {
-  font-size: 20px;
-  text-align: center;
-}
-
-.date {
-  font-size: 95%;
-  font-style: oblique;
-}
-
-.price, .notes {
-  background-color: #fcfcfc;
-  padding: 20px;
-  width: 48%;
-  max-width: 48%;
-  border: 1px solid #b5b5b5;
-}
-
-.notes {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.notes.user {
-  width: 48%;
-}
-
-.quantity {
-  text-align: left !important;
-  color: #b5b5b5;
-}
-
-.top {
-  text-align: center;
-  padding: 5px;
-  margin-bottom: 5px;
-  font-size: 35px;
-}
-
-table.barby-barcode {
-  height: 100px;
-  margin-top: 20px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-td.barby-cell.on {
-  height: 100px;
-  background-color: #000000;
-  width: 1px;
-}
-
-td.barby-cell.off {
-  background-color: #ffffff !important;
-  width: 1px;
-}
-
-.printbtn {
-  text-align: center;
-  padding: 20px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
-
-.print {
-  color: #ffffff; 
-  background-color: #428bca; 
-  padding: 15px; 
-  padding-left: 185px;
-  padding-right: 185px;
-  border: 1px solid #3B6C96;
-  width: 200px;
-}
-
-</style>
 <div class="display">
   <span class="quantity">Qty: <%= @qrcode.quantity %></span>
   <div class="top">
@@ -116,14 +11,14 @@ td.barby-cell.off {
   <div class="item_info">
     <div class="price">
       <% if @qrcode.cash_price != 0 and @qrcode.credit_price != 0 %>
-        <h5>Cash price: <%= @qrcode.cash_price %></h5>
+        <h5>Cash price: $<%= currency(@qrcode.cash_price) %></h5>
         <hr noshade color="#b5b5b5">
-        <h5>Credit price: <%= @qrcode.credit_price %></h5>
+        <h5>Credit price: $<%= currency(@qrcode.credit_price) %></h5>
       <% else %>
         <% if @qrcode.credit_price != 0 %>
-          <h5>Credit price: <%= @qrcode.credit_price %></h5>
+          <h5>Credit price: $<%= currency(@qrcode.credit_price) %></h5>
         <% else %>
-          <h5>Cash price: <%= @qrcode.cash_price %></h5>
+          <h5>Cash price: $<%= (@qrcode.cash_price) %></h5>
         <% end %>
       <% end %>
     <% if @qrcode.notes.blank? %>

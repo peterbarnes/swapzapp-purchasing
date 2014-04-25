@@ -1,72 +1,30 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* universal */
-
 * {
   font-family: 'Open Sans' !important;
   box-sizing: border-box;
 }
-
+.date {
+  font-size: 95%;
+  font-style: oblique;
+}
+.display {
+  background-color: #ffffff;
+  margin-top: 20px;
+  width: 65%;
+  border-radius: 5px;
+  border: 2px solid #b5b5b5;
+}
+.display, .price, .notes {
+  margin-right: auto;
+  margin-left: auto;
+}
+.display h1 {
+  font-size: 35px;
+  text-align: center;
+  padding: 5px;
+}
 .fa {
   font-family: FontAwesome !important;
 }
-
-a {
-  text-decoration: none;
-  color: #428bca;
-}
-
-ul {
-  list-style: none;
-}
-
 .header {
   background-color: #222222;
   border-color: #090909;
@@ -78,7 +36,54 @@ ul {
   text-align: center;
   line-height: 70px;
 }
+.navlinks {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  padding: 10px;
+  padding-top: 10px; 
+}
 
+.navlinks a {
+  padding: 10px;
+}
+.notes {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.notes.user {
+  width: 48%;
+}
+.price, .notes {
+  background-color: #fcfcfc;
+  padding: 20px;
+  width: 48%;
+  max-width: 48%;
+  border: 1px solid #b5b5b5;
+}
+.print {
+  color: #ffffff; 
+  background-color: #428bca; 
+  padding: 15px; 
+  padding-left: 185px;
+  padding-right: 185px;
+  border: 1px solid #3B6C96;
+  width: 200px;
+}
+.print:hover {
+  background-color: #2A6291 !important;
+}
+.printbtn {
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.printtrue {
+  display: none;
+}
 .qrtable {
   width: 80%;
   margin-left: auto;
@@ -92,18 +97,12 @@ ul {
   max-height: 650px;
   overflow: scroll;
 }
-
 .qrtable li {
   padding: 5px;
 }
 
 .qrtable table {
   width: 100%;
-}
-
-.qrtable th {
-  text-align: left;
-  padding-bottom: 5px;
 }
 
 .qrtable tbody {
@@ -114,7 +113,57 @@ ul {
   height: 45px;
   line-height: 45px;
 }
+.qrtable th {
+  text-align: left;
+  padding-bottom: 5px;
+}
+.quantity {
+  text-align: left !important;
+  color: #b5b5b5;
+}
+.top {
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 5px;
+  font-size: 35px;
+}
+a {
+  text-decoration: none;
+  color: #428bca;
+}
+a.active {
+  background-color: #428bca !important;
+  color: #ffffff !important;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: default;
+}
+h5 {
+  font-size: 20px;
+  text-align: center;
+}
+small {
+  font-size: 60%;
+  color: #b5b5b5;
+  font-style: oblique;
+}
+table.barby-barcode {
+  height: 100px;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
 
+td.barby-cell.on {
+  height: 100px;
+  background-color: #000000;
+  width: 1px;
+}
+
+td.barby-cell.off {
+  background-color: #ffffff !important;
+  width: 1px;
+}
 tr:nth-child(2n+1) {
   background-color: #fafafa;
 }
@@ -122,32 +171,6 @@ tr:nth-child(2n+1) {
 tr.tablehead {
   background-color: #f2f2f2;
 }
-
-.print:hover {
-  background-color: #2A6291 !important;
-}
-
-.printtrue {
-  display: none;
-}
-
-.navlinks {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  padding: 10px;
-  padding-top: 10px; 
-}
-
-.navlinks a {
-  padding: 10px;
-}
-
-a.active {
-  background-color: #428bca !important;
-  color: #ffffff !important;
-  padding: 10px;
-  border-radius: 10px;
-  cursor: default;
+ul {
+  list-style: none;
 }
