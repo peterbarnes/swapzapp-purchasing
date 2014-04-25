@@ -1,8 +1,5 @@
 require 'rubygems'
 require 'bundler'
-require 'barby'
-require 'barby/barcode/code_128'
-require 'barby/outputter/png_outputter'
 
 ENV['RACK_ENV'] ||= 'development'
 
@@ -39,6 +36,11 @@ get '/?' do
   erb :index 
 end
 
+get '/nosku' do 
+  @qrcodes = Qrcode.desc(:created_at)
+  erb :nosku
+end
+
 # Print
 get '/print/:id/?' do 
   @qrcode = Qrcode.find(params[:id])
@@ -49,9 +51,7 @@ get '/print/:id/?' do
     :credit_price => @qrcode.credit_price,
     :purchase_id => @qrcode.purchase_id
   }.to_json
-  @qr = RQRCode::QRCode.new( @data, :size => 8, :level => :l )
-  @barcode = Barby::PngOutputter.new(@qrcode).to_png
-  File.open('@qrcode.png', 'w'){|f| f.write @barcode}
+  
   if params[:print]
     erb :printer, :layout => false
   else
@@ -106,12 +106,4 @@ end
 not_found do
   status 404
   ""
-end
-
-def pennies_to_decimal(pennies)
-  pennies.to_f / 100
-end
-
-def currency(pennies, options={})
-  number_to_currency(pennies_to_decimal(pennies), options)
 end

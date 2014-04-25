@@ -83,8 +83,8 @@ ul {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
   margin-bottom: 20px;
+  margin-top: 10px;
   padding: 25px;
   background-color: #f2f2f2;
   border: 1px solid #c2c2c2;
@@ -129,4 +129,25 @@ tr.tablehead {
 
 .printtrue {
   display: none;
+}
+
+.navlinks {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  padding: 10px;
+  padding-top: 10px; 
+}
+
+.navlinks a {
+  padding: 10px;
+}
+
+a.active {
+  background-color: #428bca !important;
+  color: #ffffff !important;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: default;
 }

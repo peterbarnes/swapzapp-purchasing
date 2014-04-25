@@ -1,0 +1,38 @@
+<div class="navlinks">
+  <a href="/">All</a>
+  <a href="/nosku" class="active">No SKU</a>
+</div>
+<div class="qrtable">
+  <table>
+    <thead style="border-bottom: 1px solid #c2c2c2;">
+      <tr class="tablehead">
+        <th>Quantity</th>
+        <th>Name</th>
+        <th>Cash(Credit)</th>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody class="striped">
+      <% @qrcodes.each do |c| %>
+        <% if c.sku.blank? or c.sku.nil? %>
+          <tr>
+            <td style="padding-left: 20px;"><%= c.quantity %></td>
+            <td><%= c.name %></td>
+            <td><%= c.cash_price %>(<%= c.credit_price %>)</td>
+            <td><%= c.user %></td>
+            <td><%= c.created_at.strftime("%m-%d-%Y") %></td>
+            <td style="text-align: right; padding-right: 15px;">
+              <a href="/print/<%= c.id %>">
+                <i class="fa fa-eye"></i>
+              </a>
+              |
+              <a href="/remove/<%= c.id %>"><i class="fa fa-times-circle" style="color: #FF7070;"></i></a>
+            </td>
+          </tr>
+        <% else %>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
