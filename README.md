@@ -1,1 +1,1 @@
-QRCode service
+Gameroom Item Detailer
