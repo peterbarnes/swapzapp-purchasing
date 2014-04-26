@@ -18,7 +18,7 @@
         <% if @qrcode.credit_price != 0 %>
           <h5>Credit price: $<%= currency(@qrcode.credit_price) %></h5>
         <% else %>
-          <h5>Cash price: $<%= (@qrcode.cash_price) %></h5>
+          <h5>Cash price: $<%= currency(@qrcode.cash_price) %></h5>
         <% end %>
       <% end %>
     <% if @qrcode.notes.blank? %>
@@ -36,7 +36,7 @@
   <div class="notes user">
     <h5>Employee</h5>
     <hr noshade color="#b5b5b5">
-    <p><%= @qrcode.user %></p>
+    <p><%= @qrcode.user_id %></p>
   </div>
   <div>
   </div>

@@ -1,1 +1,1 @@
-Gameroom Item Detailer
+Gameroom Item Detailer for pre-processed items.  

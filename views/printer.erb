@@ -37,7 +37,16 @@ h5 {
 </style>
 <div class="info clearfix">
   <div class="name">
-    <h1><%= @qrcode.name %> <small>(<%= @qrcode.sku %>) Qty: <%= @qrcode.quantity %></small></h1>
+    <h1>
+      <%= @qrcode.name %> 
+      <small>
+        <% if @qrcode.sku.nil? %>
+        <% else %>
+        (<%= @qrcode.sku %>) 
+        <% end %>
+        Qty: <%= @qrcode.quantity %>
+      </small>
+    </h1>
   </div>
   <div class="date">
     <h1><%= @qrcode.created_at.strftime("%m-%d-%Y") %></h1>
@@ -62,7 +71,7 @@ h5 {
   </div>
   <% end %>
   <div class="user">
-    <h4>Employee: <%= @qrcode.user %></h4>
+    <h4>Employee: <%= @qrcode.user_id %></h4>
   </div>
   <div class="codes">
     <h2>*insert QR and barcodes here*</h2>

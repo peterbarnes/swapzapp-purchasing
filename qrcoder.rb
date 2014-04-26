@@ -8,16 +8,18 @@ Bundler.require(:default)
 class Qrcode
   include Mongoid::Document
   include Mongoid::Timestamps
-  
+
+  field :purchase_id,  type: String
+  field :account_id,   type: String
+  field :user_id,      type: String
   field :name,         type: String
   field :sku,          type: String
   field :cash_price,   type: Integer
   field :credit_price, type: Integer
   field :quantity,     type: Integer
-  field :purchase_id,  type: String
-  field :account_id,   type: String
   field :notes,        type: String
-  field :user,         type: String
+  field :proccessed,   type: Boolean
+  field :ratio,        type: Float
 end
 
 configure do
@@ -66,8 +68,8 @@ get '/remove/:id' do
 end
 
 # API Index
-get '/qrcodes/?' do
-  Qrcode.all.to_json
+get '/qrcodes/:account_id/?' do
+  Qrcode.where(:account_id => params[:account_id]).to_json
 end
 
 # API Find
@@ -86,7 +88,7 @@ post '/qrcodes/?' do
 end
 
 # API Update
-put '/qrcodes/:id/?' do
+put '/qrcodes/:account_id/:id/?' do
   begin
     Qrcode.find(params[:id]).update_attributes(JSON.parse(request.body.read))
   rescue
