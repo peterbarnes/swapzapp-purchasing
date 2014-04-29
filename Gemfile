@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 ruby '2.1.0'
 
 gem 'sinatra'
-gem 'mongoid', github: 'mongoid/mongoid'
+gem 'mongoid'
 gem 'rqrcode'
 gem 'rqrcode_png'
 gem 'chunky_png'
