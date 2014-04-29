@@ -1,3 +1,3 @@
-require File.dirname(__FILE__) + '/qrcoder.rb'
+require File.dirname(__FILE__) + '/buyid.rb'
 
 run Sinatra::Application

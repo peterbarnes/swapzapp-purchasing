@@ -7,4 +7,4 @@ development:
     default:
       hosts:
         - localhost:27017
-      database: qrcodes
+      database: swapzapp-buyid

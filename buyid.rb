@@ -18,7 +18,7 @@ class Qrcode
   field :credit_price, type: Integer
   field :quantity,     type: Integer
   field :notes,        type: String
-  field :proccessed,   type: Boolean
+  field :processed,    type: Boolean
   field :ratio,        type: Float
 end
 
