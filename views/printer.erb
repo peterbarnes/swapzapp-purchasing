@@ -38,40 +38,40 @@ h5 {
 <div class="info clearfix">
   <div class="name">
     <h1>
-      <%= @qrcode.name %> 
+      <%= @entity.name %> 
       <small>
-        <% if @qrcode.sku.nil? %>
+        <% if @entity.sku.nil? %>
         <% else %>
-        (<%= @qrcode.sku %>) 
+        (<%= @entity.sku %>) 
         <% end %>
-        Qty: <%= @qrcode.quantity %>
+        Qty: <%= @entity.quantity %>
       </small>
     </h1>
   </div>
   <div class="date">
-    <h1><%= @qrcode.created_at.strftime("%m-%d-%Y") %></h1>
+    <h1><%= @entity.created_at.strftime("%m-%d-%Y") %></h1>
   </div>
   <div class="price">
-    <% if @qrcode.cash_price != 0 and @qrcode.credit_price != 0 %>
-      <h5>Cash price: $<%= currency(@qrcode.cash_price) %></h5>
+    <% if @entity.cash_price != 0 and @entity.credit_price != 0 %>
+      <h5>Cash price: $<%= currency(@entity.cash_price) %></h5>
       <hr noshade color="#b5b5b5">
-      <h5>Credit price: $<%= currency(@qrcode.credit_price) %></h5>
+      <h5>Credit price: $<%= currency(@entity.credit_price) %></h5>
     <% else %>
-      <% if @qrcode.credit_price != 0 %>
-        <h5>Credit price: $<%= currency(@qrcode.credit_price) %></h5>
+      <% if @entity.credit_price != 0 %>
+        <h5>Credit price: $<%= currency(@entity.credit_price) %></h5>
       <% else %>
-        <h5>Cash price: $<%= currency(@qrcode.cash_price) %></h5>
+        <h5>Cash price: $<%= currency(@entity.cash_price) %></h5>
       <% end %>
     <% end %>
   </div>
-  <% if @qrcode.notes.blank? %>
+  <% if @entity.notes.blank? %>
   <% else %>
   <div class="notes">
-    <h4>Notes: <span class="text"><%= @qrcode.notes %></span></h4>
+    <h4>Notes: <span class="text"><%= @entity.notes %></span></h4>
   </div>
   <% end %>
   <div class="user">
-    <h4>Employee: <%= @qrcode.user_id %></h4>
+    <h4>Employee: <%= @entity.user_id %></h4>
   </div>
   <div class="codes">
     <h2>*insert QR and barcodes here*</h2>

@@ -1,1 +1,4 @@
-Gameroom Item Detailer for pre-processed items.  
+Swapzapp Purchasing
+===================
+
+Purchase processing application for Swapzapp

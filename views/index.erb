@@ -2,7 +2,7 @@
   <a href="/<%= params[:account_id] %>/" class="active">All</a>
   <a href="/">No SKU</a>
 </div>
-<div class="qrtable">
+<div class="entitytable">
   <table>
     <thead style="border-bottom: 1px solid #c2c2c2;">
       <tr class="tablehead">
@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody class="striped">
-      <% @qrcodes.each do |c| %>
+      <% @entities.each do |c| %>
         <tr>
           <td style="padding-left: 20px;"><%= c.quantity %></td>
           <td><%= c.name %></td>

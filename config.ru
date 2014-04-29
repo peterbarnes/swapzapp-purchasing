@@ -1,3 +1,3 @@
-require File.dirname(__FILE__) + '/buyid.rb'
+require File.dirname(__FILE__) + '/purchasing.rb'
 
 run Sinatra::Application

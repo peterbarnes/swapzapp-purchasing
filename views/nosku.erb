@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody class="striped">
-      <% @qrcodes.each do |c| %>
+      <% @entities.each do |c| %>
         <% if c.sku.blank? or c.sku.nil? %>
           <tr>
             <td style="padding-left: 20px;"><%= c.quantity %></td>

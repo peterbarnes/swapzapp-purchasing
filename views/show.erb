@@ -1,34 +1,34 @@
 <div class="display">
-  <span class="quantity">Qty: <%= @qrcode.quantity %></span>
+  <span class="quantity">Qty: <%= @entity.quantity %></span>
   <div class="top">
-    <span><%= @qrcode.name %></span>
-    <% if @qrcode.sku.blank? %>
+    <span><%= @entity.name %></span>
+    <% if @entity.sku.blank? %>
     <% else %>
-    <span><small>(<%= @qrcode.sku %>)</small></span>
+    <span><small>(<%= @entity.sku %>)</small></span>
     <% end %>
   </div>
-  <h5 class="date"><%= @qrcode.created_at.strftime("%m-%d-%Y") %></h5>
+  <h5 class="date"><%= @entity.created_at.strftime("%m-%d-%Y") %></h5>
   <div class="item_info">
     <div class="price">
-      <% if @qrcode.cash_price != 0 and @qrcode.credit_price != 0 %>
-        <h5>Cash price: $<%= currency(@qrcode.cash_price) %></h5>
+      <% if @entity.cash_price != 0 and @entity.credit_price != 0 %>
+        <h5>Cash price: $<%= currency(@entity.cash_price) %></h5>
         <hr noshade color="#b5b5b5">
-        <h5>Credit price: $<%= currency(@qrcode.credit_price) %></h5>
+        <h5>Credit price: $<%= currency(@entity.credit_price) %></h5>
       <% else %>
-        <% if @qrcode.credit_price != 0 %>
-          <h5>Credit price: $<%= currency(@qrcode.credit_price) %></h5>
+        <% if @entity.credit_price != 0 %>
+          <h5>Credit price: $<%= currency(@entity.credit_price) %></h5>
         <% else %>
-          <h5>Cash price: $<%= currency(@qrcode.cash_price) %></h5>
+          <h5>Cash price: $<%= currency(@entity.cash_price) %></h5>
         <% end %>
       <% end %>
-    <% if @qrcode.notes.blank? %>
+    <% if @entity.notes.blank? %>
     <% else %>
   </div>
     <div class="notes">
      <h5>Notes</h5>
      <hr noshade color="#b5b5b5">
      <p class="details">
-      <%= @qrcode.notes %>
+      <%= @entity.notes %>
      </p>
     </div>
     <% end %>
@@ -36,14 +36,14 @@
   <div class="notes user">
     <h5>Employee</h5>
     <hr noshade color="#b5b5b5">
-    <p><%= @qrcode.user_id %></p>
+    <p><%= @entity.user_id %></p>
   </div>
   <div>
   </div>
    <% if params[:print] %>
   <% else %>
   <div class="printbtn">
-    <a href="/print/<%= @qrcode.id %>/?print=true" class="print">
+    <a href="/print/<%= @entity.id %>/?print=true" class="print">
       <i class="fa fa-print"></i> Print
     </a>
   </div>
