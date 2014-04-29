@@ -14,12 +14,28 @@ class Entity
   field :user_id,      type: String
   field :name,         type: String
   field :sku,          type: String
-  field :cash_price,   type: Integer
-  field :credit_price, type: Integer
-  field :quantity,     type: Integer
+  field :cash_price,   type: Integer, :default => 0
+  field :credit_price, type: Integer, :default => 0
+  field :quantity,     type: Integer, :default => 0
   field :notes,        type: String
-  field :processed,    type: Boolean
-  field :ratio,        type: Float
+  field :processed,    type: Boolean, :default => false
+  field :ratio,        type: Float, :default => 1
+  
+  def subtotal_cash
+    cash_price * quantity
+  end
+  
+  def subtotal_credit
+    credit_price * quantity
+  end
+  
+  def cash
+    (subtotal_cash * (1 - ratio)).round.to_i
+  end
+  
+  def credit
+    (subtotal_credit * ratio).round.to_i
+  end
 end
 
 configure do
@@ -28,19 +44,20 @@ configure do
   Mongoid.load!(File.dirname(__FILE__) + '/mongoid.yml')
 end
 
+helpers do
+  def currency(pennies)
+    sprintf "%.2f", pennies.to_f / 100
+  end
+end
+
 before '/entities/*' do
   content_type :json
 end
 
 #Index
 get '/?' do 
-  @entities = Entity.desc(:created_at)
+  @purchases = Entity.desc(:created_at).group_by(&:purchase_id)
   erb :index 
-end
-
-get '/nosku' do 
-  @entities = Entity.desc(:created_at)
-  erb :nosku
 end
 
 # Print
@@ -108,11 +125,4 @@ end
 not_found do
   status 404
   ""
-end
-
-helpers do 
-
-  def currency(pennies)
-    sprintf "%.2f", pennies.to_f / 100
-  end
 end

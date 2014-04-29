@@ -1,4 +1,18 @@
-* {
+body { padding: 70px 0px; }
+
+.navbar-brand {
+  color: white !important;
+}
+
+.no-bottom {
+  margin-bottom: 0px;
+}
+
+.blue {
+  color: #428bca;
+}
+
+/** {
   font-family: 'Open Sans' !important;
   box-sizing: border-box;
 }
@@ -174,3 +188,4 @@ tr.tablehead {
 ul {
   list-style: none;
 }
+*/

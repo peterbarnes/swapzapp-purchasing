@@ -1,35 +1,46 @@
-<div class="navlinks">
-  <a href="/<%= params[:account_id] %>/" class="active">All</a>
-  <a href="/">No SKU</a>
-</div>
-<div class="entitytable">
-  <table>
-    <thead style="border-bottom: 1px solid #c2c2c2;">
-      <tr class="tablehead">
-        <th>Quantity</th>
-        <th>Name</th>
-        <th>Cash(Credit)</th>
-        <th>User</th>
-        <th>Date</th>
-      </tr>
-    </thead>
-    <tbody class="striped">
-      <% @entities.each do |c| %>
+<h3>Purchases</h3>
+<hr>
+<% @purchases.each do |key, purchase| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= purchase.first.created_at.strftime("%A %b #{purchase.first.created_at.day.ordinalize}, %Y - %H:%M:%S %p") %>
+    </div>
+    <div class="panel-body">
+      <ul class="no-bottom">
+        <li>ID: <%= key %></li>
+        <li>User: <%= purchase.first.user_id %></li>
+      </ul>
+    </div>
+    <table class="table table-striped">
+      <thead>
         <tr>
-          <td style="padding-left: 20px;"><%= c.quantity %></td>
-          <td><%= c.name %></td>
-          <td>$<%= currency(c.cash_price) %>($<%= currency(c.credit_price) %>)</td>
-          <td><%= c.user_id %></td>
-          <td><%= c.created_at.strftime("%m-%d-%Y") %></td>
-          <td style="text-align: right; padding-right: 15px;">
-            <a href="/print/<%= c.id %>">
-              <i class="fa fa-eye"></i>
-            </a>
-            |
-            <a href="/remove/<%= c.id %>"><i class="fa fa-times-circle" style="color: #FF7070;"></i></a>
-          </td>
+          <th>Quantity</th>
+          <th>Name</th>
+          <th>SKU</th>
+          <th>Cash (Credit)</th>
+          <th>Paid</th>
+          <th></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody>
+        <% purchase.each do |entity| %>
+          <tr>
+            <td><%= entity.quantity %></td>
+            <td><%= entity.name %></td>
+            <td><%= entity.sku %></td>
+            <td>$<%= currency(entity.cash_price) %> ($<%= currency(entity.credit_price) %>)</td>
+            <td>$<%= currency(entity.cash) %> ($<%= currency(entity.credit)%>)</td>
+            <td>
+              <a href="print/<%= entity.id %>">
+                <i class="fa fa-eye"></i>
+              </a>
+              |
+              <a href="remove/<%= entity.id %>"><i class="fa fa-times-circle"></i></a>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+<hr>
