@@ -6,3 +6,9 @@ $( document ).ready(function() {
     event.preventDefault();
   });
 });
+// click function for collapsing tables
+$(document).ready(function() {
+  $("div.panel-heading").click(function() {
+    $(this).next(".slide").slideToggle(400);
+  });
+});

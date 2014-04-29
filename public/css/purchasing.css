@@ -12,6 +12,14 @@ body { padding: 70px 0px; }
   color: #428bca;
 }
 
+.click {
+  cursor: pointer;
+}
+
+.fa-times-circle {
+  color: red;
+}
+
 * {
   font-family: 'Open Sans' !important;
   box-sizing: border-box;
